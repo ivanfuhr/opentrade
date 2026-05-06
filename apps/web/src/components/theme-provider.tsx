@@ -42,8 +42,8 @@ function disableTransitionsTemporarily() {
   const style = document.createElement("style")
   style.appendChild(
     document.createTextNode(
-      "*,*::before,*::after{-webkit-transition:none!important;transition:none!important}"
-    )
+      "*,*::before,*::after{-webkit-transition:none!important;transition:none!important}",
+    ),
   )
   document.head.appendChild(style)
 
@@ -67,7 +67,7 @@ function isEditableTarget(target: EventTarget | null) {
   }
 
   const editableParent = target.closest(
-    "input, textarea, select, [contenteditable='true']"
+    "input, textarea, select, [contenteditable='true']",
   )
   if (editableParent) {
     return true
@@ -97,7 +97,7 @@ export function ThemeProvider({
       localStorage.setItem(storageKey, nextTheme)
       setThemeState(nextTheme)
     },
-    [storageKey]
+    [storageKey],
   )
 
   const applyTheme = React.useCallback(
@@ -116,7 +116,7 @@ export function ThemeProvider({
         restoreTransitions()
       }
     },
-    [disableTransitionOnChange]
+    [disableTransitionOnChange],
   )
 
   React.useEffect(() => {
@@ -208,7 +208,7 @@ export function ThemeProvider({
       theme,
       setTheme,
     }),
-    [theme, setTheme]
+    [theme, setTheme],
   )
 
   return (
